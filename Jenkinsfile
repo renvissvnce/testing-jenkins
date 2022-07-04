@@ -8,7 +8,7 @@ node {
     }
         
         stage('Test') {
-            docker.image('renvissvnce/test').inside('$Length=12') { c ->
+            docker.image('renvissvnce/test').withRun('Length=12') { c ->
                     sh "docker logs ${c.id}"
                 }
         }
