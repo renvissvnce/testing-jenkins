@@ -1,5 +1,4 @@
 node {
-    { agent ( docker { image 'renvissvnce/test'} }
     parameters {
         string(
             name: "Length",
@@ -10,7 +9,7 @@ node {
     }
         
         stage('Test') {
-            docker.image('renvissvnce/test').withRun('--rm ${Length}') { c ->
+            docker.image('renvissvnce/test').imageRun('--rm ${Length}') { c ->
                     sh "docker logs ${c.id}"
                 }
     }
