@@ -1,13 +1,16 @@
-pipeline {
-    agent {
-        docker { image 'renvissvnce/test' }
+node {
+    parameters {
+        string(
+            name: "Length",
+            description: "Length of password",
+            defaultValue: "12",
+        )
+    
     }
-    stages {
+        
         stage('Test') {
-            steps {
-                sh 'docker run renvissvnce/test'
-            }
-            
-        }
+            docker.image('renvissvnce/test').withRun('--rm ${Length}') { c ->
+                    sh "docker logs ${c.id}"
+                }
     }
 }
