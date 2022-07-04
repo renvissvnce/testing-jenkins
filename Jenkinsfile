@@ -5,8 +5,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'input.py -h'
+                sh 'docker run renvissvnce/test'
             }
+            
         }
     }
 }
