@@ -5,12 +5,11 @@ node {
             description: "Length of password",
             defaultValue: "12",
         )
-    
     }
         
         stage('Test') {
-            docker.image('renvissvnce/test').imageRun('--rm ${Length}') { c ->
+            docker.image('renvissvnce/test').withRun('-e ${Length}') { c ->
                     sh "docker logs ${c.id}"
                 }
-    }
+        }
 }
