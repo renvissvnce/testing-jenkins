@@ -1,4 +1,5 @@
 node {
+    { agent ( docker { image 'renvissvnce/test'} }
     parameters {
         string(
             name: "Length",
