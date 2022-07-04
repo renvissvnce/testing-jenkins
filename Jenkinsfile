@@ -1,8 +1,12 @@
 pipeline {
-    agent { docker { image 'renvissvnce/test' } }
-      stages {
-        stage('generate password') {
-            docker.image('renvissvnce/test').withRun('--help')
+    agent {
+        docker { image 'renvissvnce/test' }
     }
-  }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'input.py -h'
+            }
+        }
+    }
 }
