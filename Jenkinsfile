@@ -3,7 +3,7 @@ pipeline {
       stages {
         stage('generate password') {
       steps {
-        sh 'docker run -ti renvissvnce/test'
+        sh 'docker run renvissvnce/test'
       }
     }
   }
