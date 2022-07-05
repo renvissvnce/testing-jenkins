@@ -1,6 +1,11 @@
 node {
     parameters {
         string(
+            name: "Name",
+            description: "Name of user",
+            defaultValue: "lolkek",
+        ),
+        string(
             name: "Length",
             description: "Length of password",
             defaultValue: "12",
@@ -8,7 +13,7 @@ node {
     }
         
         stage('Test') {
-            docker.image('renvissvnce/test').withRun('Length=12') { c ->
+            docker.image('renvissvnce/test').withRun('{$Name}: {$Length}') { c ->
                     sh "docker logs ${c.id}"
                 }
         }
