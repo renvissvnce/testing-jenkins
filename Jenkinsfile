@@ -15,5 +15,4 @@ node {
         docker.image('renvissvnce/test').inside('${NAME} ${LENGTH}' { c ->
             sh "docker logs ${c.id}"
         }
-     }
 }
