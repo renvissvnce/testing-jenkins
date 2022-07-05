@@ -4,7 +4,7 @@ node {
             name: "NAME",
             description: "Name of user",
             defaultValue: "lolkek",
-        ),
+        )
         string(
             name: "LENGTH",
             description: "Length of password",
