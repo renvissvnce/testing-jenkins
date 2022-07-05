@@ -13,7 +13,7 @@ node {
     }
         
         stage('Test') {
-            docker.image('renvissvnce/test').inside(${NAME} ${LENGTH} { c ->   
+            docker.image('renvissvnce/test').inside('${NAME} ${LENGTH}' { c ->   
                 sh "docker logs ${c.id}"
                 }
         }
