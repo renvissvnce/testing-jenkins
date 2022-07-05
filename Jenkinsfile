@@ -17,4 +17,3 @@ node {
                 sh "docker logs ${c.id}"
                 }
         }
-}
