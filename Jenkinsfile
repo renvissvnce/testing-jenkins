@@ -8,12 +8,12 @@ node {
         string(
             name: "LENGTH",
             description: "Length of password",
-            defaultValue: "12",
+            defaultValue: "15",
         )
     }
     stage('Test') {
         docker.image('renvissvnce/test').withRun { c ->
-            "-n $NAME", "-l $LENGTH"
+            "-n '${NAME}' -l $LENGTH"
             sh "docker logs ${c.id}"
         }
     }
