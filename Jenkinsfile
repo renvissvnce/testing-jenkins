@@ -13,7 +13,7 @@ node {
     }
     stage('Test') {
         docker.image('renvissvnce/test').withRun { c ->
-            sh "python3 -c input.py -n $NAME -l $LENGTH"
+            sh "--name $NAME --length $LENGTH"
             sh "docker logs ${c.id}"
         }
     }
